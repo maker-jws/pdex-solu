@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex Index Page</title>
+</head>
+
+<body>
+    <h1>Pokedex Index Page</h1>
+    <%- include ('./partials/nav.ejs', {name: typeof pokemon !==undefined && pokemon.id || "Hello Trainer" }) %>
+        <form action="/pokemon?reverse=<%=reverse.toString()%>" method="GET">
+            <!-- check what the current value is of reverse (as a string)-->
+            <%if(reverse.toString()==="true" ){%>
+                <!-- if the data passed to template states reverse query is set to true -->
+                <!-- then we can assume the data is in reverse order and we should reverse back to false -->
+                <!-- change the request query using a form hidden field -->
+                <input type="hidden" name="reverse" value="false">
+                <button type="submit">Sort A-Z</button>
+                <% }else{ %>
+                    <!-- if the data passed to template states reverse query is not set to true or is undefined: -->
+                    <!-- then we can assume the data is in standard order and we should set the query parameter to true -->
+                    <!-- change the request query using a form hidden field-->
+                    <input type="hidden" name="reverse" value="true">
+                    <button type="submit">Sort Z-A</button>
+                    <% } %>
+        </form>
+        <div>
+            <%if(reverse.toString()==="true" ){%>
+                <%pokemon.forEach((poke,idx)=> { %>
+                    <p><a href="/pokemon/<%= pokemon.length-1-idx%> ">
+                            <%= poke.name %>
+                        </a></p>
+                    <% }) %>
+                        <% }else{ %>
+                            <%pokemon.forEach((poke,idx)=> { %>
+                                <p><a href="/pokemon/<%= idx %> ">
+                                        <%= poke.name %>
+                                    </a></p>
+                                <% }) %>
+                                    <% } %>
+
+        </div>
+</body>
+
+</html>

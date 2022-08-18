@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Pokedex New Page</title>
+</head>
+
+<body>
+    <h1>Pokedex New Page</h1>
+
+    <%- include ('./partials/nav.ejs', {name: typeof pokemon !==undefined && pokemon.id || "Hello Trainer" }) %>
+
+    <div>
+        <form action='/pokemon' method='POST'>
+            <div>
+                <label>Name</label>
+                <input name='name' type='text' value='30' />
+            </div>
+            <div>
+                <label>Image</label>
+                <input name='img' type='text'
+                    value='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF91iFKzpCOW-_Vwf46e60ITd0g_2wJHU_giifKCs&s' />
+            </div>
+            <div style='padding: 20px;'>
+                <label>Stats</label>
+                <div>
+                    <label>HP</label>
+                    <input name='stats[hp]' type='text' value='30' />
+                </div>
+                <div>
+                    <label>Attack</label>
+                    <input name='stats[attack]' type='text' value='30' />
+                </div>
+                <div>
+                    <label>Defense</label>
+                    <input name='stats[defense]' type='text' value='30' />
+                </div>
+                <div>
+                    <label>SP Attack</label>
+                    <input name='stats[spaattack]' type='text' value='40' />
+                </div>
+                <div>
+                    <label>SP Defense</label>
+                    <input name='stats[spadefense]' type='text' value='40' />
+                </div>
+                <div>
+                    <label>Speed</label>
+                    <input name='stats[speed]' type='text' value='25' />
+                </div>
+            </div>
+            <div>
+                <label>Damages (Normal)</label>
+                <input name='damages[normal]' type='text' value='1' />
+            </div>
+            <div>
+                <label>Create a new Pokemon</label>
+                <br />
+                <br />
+                <input type='submit' />
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

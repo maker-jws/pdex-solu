@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>pokemondex New Page</title>
+</head>
+
+<body>
+    <h1>pokemon-dex New Page</h1>
+    <%- include ('./partials/nav.ejs', {name: typeof pokemon !==undefined && pokemon.id || "Hello Trainer" }) %>
+
+        <div>
+            <form action='/pokemon/<%=index %>?_method=PUT' method='POST'>
+                <div>
+                    <label>Name</label>
+                    <input name='name' type='text' value="<%= pokemon.name %> " />
+                </div>
+                <div>
+                    <label>Image</label>
+                    <input name='img' type='text' value="<%= pokemon.img %>" />
+                </div>
+                <div style='padding: 20px;'>
+                    <label>Stats</label>
+                    <div>
+                        <label>HP</label>
+                        <input name='stats[hp]' type='text' value="<%= pokemon.stats.hp %>" />
+                    </div>
+                    <div>
+                        <label>Attack</label>
+                        <input name='stats[attack]' type='text' value="<%= pokemon.stats.attack %>" />
+                    </div>
+                    <div>
+                        <label>Defense</label>
+                        <input name='stats[defense]' type='text' value="<%= pokemon.stats.defense %>" />
+                    </div>
+                    <div>
+                        <label>SP Attack</label>
+                        <input name='stats[spattack]' type='text' value="<%= pokemon.stats.spattack %>" />
+                    </div>
+                    <div>
+                        <label>SP Defense</label>
+                        <input name='stats[spdefense]' type='text' value="<%=pokemon.stats.spdefense  %>" />
+                    </div>
+                    <div>
+                        <label>Speed</label>
+                        <input name='stats[speed]' type='text' value="<%= pokemon.stats.speed %>" />
+                    </div>
+                </div>
+                <div>
+                    <label>Damages (Normal)</label>
+                    <input name='damages[normal]' type='text' value="<%= pokemon.damages.normal %>" />
+                </div>
+                <div>
+                    <label>Edit <%=pokemon.name %></label>
+                    <br />
+                    <br />
+                    <input type='submit' />
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex Show Page</title>
+</head>
+
+<body>
+    <h1>Pokedex Show Page</h1>
+    <%- include ('./partials/nav.ejs', {name: typeof pokemon !==undefined && pokemon.id || "Hello Trainer" }) %>
+
+        <div>
+            <h2>
+                <%= pokemon.name %>
+            </h2>
+            <p>
+                <%= pokemon.id %>
+            </p>
+            <div><img src="<%= pokemon.img %>" /></div>
+
+            <div>
+                <form action="/pokemon/<%=index%>?_method=DELETE" method="POST">
+                    <button type="submit"> Remove Pokemon</button>
+                </form>
+                <form action="/pokemon/<%= index %>/edit" method="GET">
+                    <input type="submit" value="Edit Pokemon" />
+                </form>
+            </div>
+            <a href="/pokemon">Pokemon Index</a>
+        </div>
+</body>
+
+</html>
