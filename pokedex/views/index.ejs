@@ -10,13 +10,15 @@
 
 <body>
     <h1>Pokedex Index Page</h1>
+
     <%- include ('./partials/nav.ejs', {name: typeof pokemon !==undefined && pokemon.id || "Hello Trainer" }) %>
+    
         <div>
             <%pokemon.forEach((poke,idx)=> { %>
                 <p><a href="/pokemon/<%= idx %> ">
                         <%= poke.name %>
                     </a></p>
-                <% }) %>
+            <% }) %>
         </div>
 </body>
 

@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <h1>Pokedex Show Page</h1>
     <%- include ('./partials/nav.ejs', {name: typeof pokemon !==undefined && pokemon.id || "Hello Trainer" }) %>
 
@@ -22,7 +23,7 @@
             <div><img src="<%= pokemon.img %>" /></div>
 
             <div>
-                <form action="/pokemon/<%=index%>?_method=DELETE" method="POST">
+                <form action="/pokemon/<%= index %>?_method=DELETE" method="POST">
                     <button type="submit"> Remove Pokemon</button>
                 </form>
                 <form action="/pokemon/<%= index %>/edit" method="GET">
@@ -31,6 +32,7 @@
             </div>
             <a href="/pokemon">Pokemon Index</a>
         </div>
+        
 </body>
 
 </html>
