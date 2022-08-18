@@ -11,13 +11,13 @@
 <body>
     <h1>Pokedex New Page</h1>
 
-    <%- include ('./partials/nav.ejs', {name: typeof pokemon !==undefined && pokemon.id || "Hello Trainer" }) %>
+    <%- include ('./partials/nav.ejs', {name: "Hello Trainer" }) %>
 
     <div>
         <form action='/pokemon' method='POST'>
             <div>
                 <label>Name</label>
-                <input name='name' type='text' value='30' />
+                <input name='name' type='text' value="Pokemon" />
             </div>
             <div>
                 <label>Image</label>
@@ -28,7 +28,7 @@
                 <label>Stats</label>
                 <div>
                     <label>HP</label>
-                    <input name='stats[hp]' type='text' value='30' />
+                    <input name='stats[hp]' type='text'  />
                 </div>
                 <div>
                     <label>Attack</label>
